@@ -28,24 +28,20 @@ for (let i =0; i<3;i++){
     .then((results) => {
       /* Push output and repeat for Fotolia */
       stockScores.push(results.audits["speed-index-metric"].rawValue);
-      if (results.audits["speed-index-metric"].rawValue == null){
-        console.log(results)
-      }
-      console.log(results.audits["speed-index-metric"].rawValue);
       return lighthouse("https://us.fotolia.com/", flags, config);
     })
     .then((results) => {
-      /* Print output and repeat for ShutterStock */
+      /* Push output and repeat for ShutterStock */
       fotoliaScores.push(results.audits["speed-index-metric"].rawValue);
       return lighthouse("https://www.shutterstock.com/", flags, config);
     })
     .then((results) => {
-      /* Print output and repeat for iStock */
+      /* Push output and repeat for iStock */
       shutterScores.push(results.audits["speed-index-metric"].rawValue);
       return lighthouse("http://www.istockphoto.com/", flags, config);
     })
     .then((results) => {
-      /* Print output and repeat for iStock */
+      /* Push output and repeat for iStock */
       istockScores.push(results.audits["speed-index-metric"].rawValue);
 
       /* Kill Chrome */
